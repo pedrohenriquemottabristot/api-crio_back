@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -52,4 +53,20 @@ public class UsuarioService {
         Usuario usuario = getUserById(id);
         usuarioRepository.delete(usuario);
     }
+
+    public Optional<Usuario> findByEmail(String email) {
+        Optional <Usuario> usuario= usuarioRepository.findByEmail(email);
+        return usuario;
+    }
+
+    public Usuario findByTipo(int tipo) {
+        Usuario usuario = (Usuario) usuarioRepository.findByTipo(tipo);
+        return usuario;
+    }
+
+    public List<Usuario> findByCreatedAtBetween(LocalDateTime start, LocalDateTime end) {
+        Usuario usuario = (Usuario) usuarioRepository.findByCreatedAtBetween(start, end);
+        return (List<Usuario>) usuario;
+    }
 }
+

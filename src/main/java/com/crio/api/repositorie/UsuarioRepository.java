@@ -33,7 +33,7 @@ public interface UsuarioRepository extends
     void deleteByIdUsuario(UUID id);
 
     //verificar se um usuário já está cadastrado no sistema com determinado email.
-    @Query ("SELECT u FROM Usuario u WHERE u.email = :e mail")
+    @Query ("SELECT u FROM Usuario u WHERE u.email = :email")
     Optional<Usuario> findByEmail(String email);
 
     //busca todos os usuários de um determinado tipo
@@ -42,8 +42,9 @@ public interface UsuarioRepository extends
     List<Usuario> findByTipo(int tipo);
 
     //listar todos os usuários cadastrados em um determinado período de tempo.
-    @Query ("SELECT u FROM Usuario u WHERE u.createdAt = :createdat")
-    List<Usuario> findByCreatedAt(LocalDateTime createdat);
+    @Query("SELECT u FROM Usuario u WHERE u.createdAt BETWEEN :start AND :end")
+    List<Usuario> findByCreatedAtBetween(LocalDateTime start, LocalDateTime end);
+
 
 
 }

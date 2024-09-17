@@ -2,6 +2,7 @@ package com.crio.api.service;
 
 import com.crio.api.domain.endereco.Endereco;
 import com.crio.api.domain.endereco.EnderecoRequestDTO;
+import com.crio.api.domain.usuario.Usuario;
 import com.crio.api.repositorie.EnderecoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,5 +45,15 @@ public class EnderecoService {
     public void deleteEndereco(UUID id){
         Endereco endereco = getEnderecoById(id);
         enderecoRepository.delete(endereco);
+    }
+
+    public Endereco findByCity(String city) {
+        Endereco endereco = (Endereco) enderecoRepository.findByCity(city);
+        return enderecoRepository.findByCity(city);
+    }
+
+    public Endereco findByUf(String uf) {
+        Endereco endereco = (Endereco) enderecoRepository.findByUf(uf);
+        return enderecoRepository.findByUf(uf);
     }
 }
