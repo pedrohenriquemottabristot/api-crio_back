@@ -81,5 +81,5 @@
 > ## Tecnologias Utilizadas
 > - Docker
 > - Docker Compose
-> - Python (ou a linguagem que você estiver usando)
+> - Java
 > - Flask / FastAPI (ou outro framework da API)
